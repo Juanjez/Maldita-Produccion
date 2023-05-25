@@ -1,18 +1,25 @@
 # **Maldita Producción**
 ### Una guía cortita y al pie para Glyphs 3.2
 
-Preparando todo
+Esta guía es un recordatorio de cosas que revisar al terminar una tipografía. Glifos que por lo que sea dan problemas, rellenar el Font Info, una estrategia para los nombres y esas cosas que preferiríamos ignorar de las fuentes variables.
 
-Rellenando el Font Info
+Con un poco de suerte una nueva versión de Glyphs dejará obsoleta la mitad de la guía, pero por ahora acabar fuentes es un conocimiento arcano solo apto para amantes del Terminal y toca aprender a convivir con ello.
 
-¡Chequea, maldito!
+**Preparando todo**
+Cosas a instalar para ir tirando.
 
-El archivo OpenType
+**¡Chequea, maldito!**
+Lo que se te olvida y luego vienen los llantos.
 
+**Rellenando el Font Info**
+Abandonad toda esperanza los que aquí entréis.
+
+**El archivo OpenType**
+Porque hemos venido a este mundo a sufrir.
 
 ## Preparando todo
 
-Hay que tener unas cuantas cosas instaladas y actualizadas para que todo vaya bien. Si algo no chuta, invita a comer a tu amigo informático.
+Hay que tener unas cuantas cosas instaladas y actualizadas para que todo vaya bien. Son unos pasos sencillos y si algo no chuta, siempre podrás invitar a comer a tu amigo el informático.
 
 ### Instalando python3
 
@@ -64,9 +71,11 @@ En `Preferencias/Addons` escoger la versión de Python que pone (Glyphs)
 
 ### Chequeo de problemas tontos
 
-Paths/Correct Path Directions: Mejor haberlo hecho antes, ahora te jodes si se fastidia todo.
+`Paths/Correct Path Directions`: Mejor haberlo hecho antes, ahora te jodes si se fastidia todo.
 
-Crear el glifo nbspace (uni00A0), se hace solo a partir del espacio.
+Crear el glifo `nbspace (uni00A0)`, se hace solo a partir del espacio.
+
+Crear `soft hyphen (u00AD)`.
 
 Asegurarse de que todas las letras estén en un grupo de kerning.
 
@@ -74,9 +83,15 @@ Chequear los glifos con Dotbelow, que fallan a veces.
 
 Revisar prosas de Q Ơ Ư Ǿ (o mejor, usar =|@300 o similar en el espaciado y olvidarse)
 
+Revisar el kerning de lcaron, dcaron, and tcaron.
+
 Revisar ligaduras, æ y œ
 
-**Scripts de chequeo:**
+Pon un texto de descripción en los Stylistic Sets.
+
+Revisar los componentes anidados. No dejar componentes dentro de otros en los archivos finales. `Scripts/Mekkablue/Components/Component Problem Finder`
+
+**Scripts de chequeo de Trazados:**
 
 `Mekkablue/Paths/Path Problem Finder`
 
@@ -90,7 +105,7 @@ Revisar ligaduras, æ y œ
 
 Estos scripts ponen emojis en los nodos con fallo y te dejan la tipo hecha un asco. Para borrar los emojis volver a chequear o: `Mekkablue/Glyphs Names.../Garbage Collection` 
 
-**Chequeo de interpolación:**
+**Scripts de chequeo de interpolación:**
 
 `Mekkablue/Interpolation/Find Shapesifting Glyphs`
 
@@ -104,6 +119,7 @@ Estos scripts ponen emojis en los nodos con fallo y te dejan la tipo hecha un as
 
 
 ### Chequeo tras deshacer componentes
+
 Hacer la unión de ogoneks, uhorn y ohorn bonica si procede.
 
 
@@ -128,7 +144,7 @@ Unas pocas opciones extra:
 
 ## Rellenando el Font Info
 
-La mayoría del Font Info es sencillo, o al menos engañosamente sencillo. Aquí no me meto en lo obvio ni en opciones que sirven para cosas muy específicas. Es más un recordatorio de lo que se me olvida que una guía completa de lo que hay que poner.
+La mayoría del Font Info es sencillo, o al menos engañosamente sencillo. Aquí no me meto en lo obvio ni en opciones que sirven para cosas muy específicas. Es más un recordatorio de lo que se me olvida siempre que una guía completa de lo que hay que poner.
 
 ### Pestaña Font:
 
@@ -136,7 +152,7 @@ Activar `Use typo metrics`
 
 `fsType Embedding` Editable
 
-`glyphOrder` desordena la ventana Font, se puede hacer y activar al final.
+`glyphOrder` desordena la ventana Font, se puede hacer y activar al final del todo.
 
 `Family Alignment Zones`
 
@@ -144,9 +160,9 @@ Activar `Use typo metrics`
 
 `Export Mac Name Table Entries` desactivado
 
-`Panose`: No sirve pa na. Ponerlo vacío o si es monoespaciada.
+`Panose`: No sirve pa na. Ponerlo vacío y rellenar sólo si es monoespaciada.
 
-Si es monoespaciada: `isFixedPitch`
+Si la tipo es monoespaciada: `isFixedPitch` activado.
 
 
 ### Pestaña Masters: Hinting
@@ -157,11 +173,11 @@ Si es monoespaciada: `isFixedPitch`
 
 ### Pestaña Masters: Vertical Metrics
 
-Recuerden: Activar `Use_Typo_Metrics`
+Recuerden: Activar `Use_Typo_Metrics` en Fonts.
 
 Para calcular los VM, mejor hacerlo con el máster más pesado y copiar los resultados en los demás masters. 
 
-**Ojo: Toda la familia debe tener los mismos valores.**
+**Porque ojo: Toda la familia debe tener los mismos valores.**
 
 Podemos usar el Script Mekkablue Font Info / Vertical Metrics Manager para ahorrar tiempo o hacerlo a manita.
 
@@ -197,7 +213,29 @@ En resumen, hhea=typo.
 
 Si tras exportar, usamos el Script Test/Webfont Test HTML con Metrics activado vemos como queda de centrada la tipo en un fondo gris. Si pensamos en nuestra tipo en un botón web, estaría bien que quedase centrado.
 
+### Pestaña Exports:
+
+Esto se entiende mucho mejor si antes lees sobre el archivo OpenType.
+
 ### Pestaña Exports: General
+
+`Name Table Entry: 1; ` 
+El nombre de la familia si es RIBBI: *Times New Roman*
+El nombre del peso si no: *Times New Roman SemiBold*
+
+`Name Table Entry: 2; `
+Si es RIBBI: *Regular, Bold, Italic, Bold Italic*
+Si no es RIBBI: *Regular o Italic*
+
+`Full Name` o `Custom P: Name Table Entry: 4; ` 
+Nombre de fuente + nombre de estilo: *Times New Roman Bold Italic*
+
+`Font Name` o `Custom P: Name Table Entry: 6; `
+Nombre Postscript: *TimesNewRoman-BoldItalic*
+
+`WWS Family Name:` Para tipos con estilos que no se ajusten a Weight Width Slope, como Optical Sizes: *Times New Roman Display*
+
+`WWS Subfamily Name:`: *Bold Italic*
 
 
 
@@ -223,19 +261,58 @@ Si tenemos versiones .bold de p. ej. el $ para nuestra variable y queremos expor
 
 `Localized Family Names: ` Si exportamos tanto estáticas como variables, cambiamos el nombre a la variable para que se distinga en el menú: *Times New Roman Variable*
 
-`Variations PostScript Name Prefix: ` Para poner un nombre postcript, sin espacios, a nuestro gusto: *TimesNewRomanVF*
+`Variations PostScript Name Prefix: ` Para poner un nombre postcript, sin espacios, a nuestro gusto: *TimesNewRomanVF-Roman*
 
 **Pestaña Export / Custom Parameters **
 
 Establecer `Variable Font Origin`. Tiene que ser un máster. Si queremos Style Linking que vaya de Regular y Bold, el Regular tiene que ser máster. Si no, volverá de Bold al máster de origen.
 
-`File Name:` Para que el archivo a exportar tenga el nombre que queramos y se distinga de las estáticas: *TimesNewRomanVF*
+`File Name:` Para que el archivo a exportar tenga el nombre que queramos y se distinga de las estáticas: *TimesNewRomanVF-Roman*
 
-`Axis Location:` Para la tabla AVAR en fuentes variables. Convierte nuestras coordenadas de diseño en coordenadas para el usuario, con un peso 400 en Regular, 700 en Bold, etc. más sencillas de usar.
+`Name Table Entry: 1; ` 
+El nombre de la familia + VF, variable...: *Times New Roman Variable*
+
+`Name Table Entry: 2; `
+*Regular o Italic*
+
+`Full Name` o `Custom P: Name Table Entry: 4; ` 
+Nombre de fuente + nombre de estilo: *Times New Roman Variable*
+
+En las instancias estáticas: `Axis Location:` Para la tabla AVAR en fuentes variables. Convierte nuestras coordenadas de diseño en coordenadas para el usuario, con un peso 400 en Regular, 700 en Bold, etc. más sencillas de usar.
 
 Se chequea en [https://www.axis-praxis.org/samsa/](https://www.axis-praxis.org/samsa/)
 
-Con el script `Mekkablue / test / Variable Font test HTML` podemos probarla.
+Con el script `Mekkablue / test / Variable Font test HTML` podemos probar la fuente tras exportar.
+
+**Pestaña Other **
+
+`Font Type: Variable`
+
+### Cursivas en fuentes variables
+
+Si tenemos una tipo inclinada lo normal es que vaya en el mismo archivo y todo vaya bastante bien, pero si tenemos cursivas auténticas en una variable tendremos dos archivos que no interpolan entre sí, pero querremos que funcione el style linking.
+
+Aunque tengamos una Slant, es mejor llamar al eje Italic (vete a saber por qué).
+
+Las instancias deben tener Style Linking. Cada peso con su par en la romana, y la Bold Italic con Regular.
+
+**Pestaña Export:**
+
+En `Variable Font Setting`
+
+`Name:` Italic
+
+`Localized Family Names: ` Igual que en la romana: *Times New Roman Variable*
+
+`Variations PostScript Name Prefix: ` Añadimos Italic: *TimesNewRomanVFItalic*
+
+`FileName:` *TimesNewRomanVFItalic*
+
+**En TTX**
+
+Podemos chequear en `MacStyleValue` y `fsSelectionValue`.
+
+Nombres Postscript: Al crearlos Glyphs pone dos veces Italic. No es importante pero podemos borrar el Segundoo para acortarlo: `TimesNewRomanVFItalic-Regular `
 
 
 ## Generamos las fuentes
@@ -573,16 +650,16 @@ Si ahora probamos en [Samsa](https://www.axis-praxis.org/samsa/) veremos que la 
 
 ### La tabla AVAR
 
-Aquí vemos el mapeo que hemos hecho con `Axis Location`.
+Aquí vemos el mapeo que hemos hecho con `Axis Location`. El master de origen sería 0.0.
 
 ### La tabla FVAR
 
-Aquí vemos las instancias y los nombres que tendrán en el menú.
+Aquí vemos definidos los ejes, las instancias y los nombres que tendrán en el menú.
 
+Encima de cada instancia tenemos su `postscriptNameID` y su `subfamilyNameID`.
 
+En el master de origen el `postscriptNameID` sale del ID 6 y el `subfamilyNameID` de ID 17
 
-### Cursivas en fuentes variables
+En el resto se calcula con ID 25 + `subfamilyNameID`
 
-Si tenemos una tipo inclinada lo normal es que vaya en el mismo archivo y todo vaya bastante bien, pero si tenemos cursivas auténticas en una variable tendremos dos archivos que no interpolan entre sí, pero querremos que funcione el style linking.
-
-
+En Glyphs podemos usar el Custom Parameter `Postscript Name Prefix` para poner el ID 25, que debe ser diferente a las estáticas. Si no se pone, Glyphs usará `Localized Family Name `sin espacios. 
