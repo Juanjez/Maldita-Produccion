@@ -253,8 +253,6 @@ Todo esto sería genial si no fuese porque Glyphs (versión 3.2 en mayo de 2023)
 
 Si exportamos una tipo variable con tres ejes OPSZ, WGHT e ITAL, podemos abrirla en [Samsa](https://www.axis-praxis.org/samsa/) y ver cómo se comporta en la pestaña STAT.
 
-![dollar](Images/STAT1.png)
-
 Y si nos movemos por nuestro XML hasta llegar a la STAT veremos algo así:
 
     <STAT>
