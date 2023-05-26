@@ -631,6 +631,8 @@ En las instancias estáticas: `Axis Location:` Para la tabla AVAR en fuentes var
 
 Se chequea en [https://www.axis-praxis.org/samsa/](https://www.axis-praxis.org/samsa/)
 
+Con el plugin `mekkablue/UnnestComponents` añadimos el CP `Filter: UnnestComponents`.
+
 Con el script `Mekkablue / test / Variable Font test HTML` podemos probar la fuente tras exportar.
 
 **Pestaña Other **
