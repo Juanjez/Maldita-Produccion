@@ -89,7 +89,7 @@ Revisar ligaduras, æ y œ
 
 Pon un texto de descripción en los Stylistic Sets.
 
-Revisar los componentes anidados. No dejar componentes dentro de otros en los archivos finales. `Scripts/Mekkablue/Components/Component Problem Finder`
+Revisar los componentes anidados. No dejar componentes dentro de otros en los archivos finales. `Scripts/Mekkablue/Components/Component Problem Finder` y hay un plugin `mekkablue/UnnestComponents` en el Plugin Manager.
 
 **Scripts de chequeo de Trazados:**
 
@@ -120,7 +120,9 @@ Estos scripts ponen emojis en los nodos con fallo y te dejan la tipo hecha un as
 
 ### Chequeo tras deshacer componentes
 
-Hacer la unión de ogoneks, uhorn y ohorn bonica si procede.
+Es buena idea deshacer componentes en glifos donde los componentes se solapen (Tbar, dollar, cedilla, etc) aunque para Variables dejar los componentes puede hacer todo más facil.
+
+Hacer bonica la unión de ogoneks, uhorn y ohorn si procede.
 
 
 ### Chequeo de problemas con Fontbakery
